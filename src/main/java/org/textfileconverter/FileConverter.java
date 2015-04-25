@@ -7,6 +7,7 @@ package org.textfileconverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -20,7 +21,7 @@ public class FileConverter {
 	fileTypeStrategy = file;
     }
 
-    public void convert(BufferedReader reader) throws IOException {
-	fileTypeStrategy.convert(reader);
+    public List<List<String>> convert(BufferedReader reader) throws IOException {
+	return fileTypeStrategy.convert(reader);
     }
 }

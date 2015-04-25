@@ -5,16 +5,15 @@
  */
 package org.textfileconverter;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.List;
 
 /**
  *
  * @author ocean
  */
-public interface FileType {
+public class XmlDTO {
 
-    List<List<String>> convert(BufferedReader reader) throws IOException;
+    private String sentence;
 
+    private List<String> words;
 }

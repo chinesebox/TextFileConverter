@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -17,37 +18,34 @@ import java.util.Collections;
  */
 public class XMLStrategy implements FileType {
 
+    private final static String DELIMITER = ".";
+
     @Override
-    public void convert(BufferedReader reader) throws IOException {
+    public List<List<String>> convert(BufferedReader reader) throws IOException {
+	List<List<String>> sentences = new ArrayList<>();
+	List<String> words = new ArrayList<>();
 	char[] cbuf = new char[15];
-//	    int off = 0;
-//	    int len = 11;
 	StringBuilder sb = new StringBuilder();
-	System.out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
-	System.out.println("<text>");
 	while (reader.read(cbuf) != -1) {
+	    words = new ArrayList<>();
 	    String s = String.valueOf(cbuf);//Sprawdzic czy char mozna odrazu na stringbuilder przerobic
-	    boolean c = s.contains(".");//int indx = s.indexOf(".");
+	    boolean c = s.contains(DELIMITER);//int indx = s.indexOf(".");
 	    if (c) {
-		int indx = s.indexOf(".");
+		int indx = s.indexOf(DELIMITER);
 		sb.append(s.substring(0, indx));
 		String[] res = sb.toString().trim().split("(\\W)+");
 		ArrayList<String> result = new ArrayList(Arrays.asList(res));
 		Collections.sort(result, String.CASE_INSENSITIVE_ORDER);
-		System.out.println("    <sentence>");
-		result.stream().forEach((r) -> {
-		    System.out.format("	    <word>%s</word>\n", r);
-		});
-		System.out.println("    </sentence>");
-//		    System.out.println(indx + ">>> " + sb.toString());
+		result.stream().forEach(words::add);
+		sentences.add(words);
 		sb = new StringBuilder();
 		sb.append(s.substring(indx + 1));
 	    } else {
 		sb.append(cbuf);
-//		    System.out.println("### " + sb.toString());
 	    }
 	}
-	System.out.println("</text>");
+
+	return sentences;
     }
 
 }
