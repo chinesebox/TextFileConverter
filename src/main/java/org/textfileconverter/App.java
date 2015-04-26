@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 public class App {
 
     public static void main(String[] args) throws IOException, Exception {
+
 	Path path = Paths.get("input.txt");
 //	, StandardCharsets.UTF_8
 

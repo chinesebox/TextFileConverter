@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sun Apr 26 17:12:32 CEST 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-014c-f649-7156-000005b73668 
+on database directory C:\Users\ocean\Documents\NetBeansProjects\TextFileConverter\sampleDB with class loader sun.misc.Launcher$AppClassLoader@42a57993 
+Loaded from file:/C:/Users/ocean/.m2/repository/org/apache/derby/derby/10.10.1.1/derby-10.10.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_45-b14
+user.dir=C:\Users\ocean\Documents\NetBeansProjects\TextFileConverter
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
